@@ -7,9 +7,14 @@ app = Flask(__name__)
 app.config['APPLICATION_ROOT'] = '/'
 
 
-@app.route('v1/cases')
+@app.route('/v1/cases')
 def cases():
+    # latitude
     lat = request.args.get("lat")
+    # longitude
     lon = request.args.get("lon")
-    cases = get_cases_by_location(lat, lon)
+    # ISO date
+    since = request.args.get("since")
+
+    cases = get_cases(lat, lon, since)
     return jsonify(cases)
