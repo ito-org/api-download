@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['APPLICATION_ROOT'] = '/'
 
 
-@app.route('cases')
+@app.route('v1/cases')
 def cases():
     lat = request.args.get("lat")
     lon = request.args.get("lon")
