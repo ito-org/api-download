@@ -14,4 +14,4 @@ def get_cases(lat: Optional[int], lon: Optional[int], since: Optional[datetime] 
         conditions["lon"] = lon
     if since is not None:
         conditions["since"] = {"$gte": since}
-    return [case for case in mongo.db.cases.find(conditions)]
+    return (case for case in mongo.db.cases.find(conditions))
