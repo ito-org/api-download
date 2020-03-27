@@ -8,10 +8,10 @@ Public API for fetching anonymous identifiers of SARS-CoV-2 positive users
 - MongoDB database
 
 <details>
-  <summary>Quick start Python3</summary>
+  <summary>Quick start Python 3.8</summary>
   
   ```bash
-sudo apt install python3 python3-pip
+sudo apt install python3.8 python3-pip
 sudo update-alternatives --config python3
   ```
   Then select the correct Python version.
@@ -46,3 +46,4 @@ Run the local Flask development server using
 export POETRY_ENV="development"
 poetry run flask run
 ```
+Then browse to http://localhost:5000/v1/cases?uuid=af7af6b6-eb02-4d12-b554-f5cb089afc5d for example.
