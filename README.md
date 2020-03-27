@@ -8,10 +8,10 @@ Public API for fetching anonymous identifiers of SARS-CoV-2 positive users
 - MongoDB database
 
 <details>
-  <summary>Quick start Python 3.8</summary>
+  <summary>Quick start Python 3.8 (Debian based Linux)</summary>
   
   ```bash
-sudo apt install python3.8 python3-pip
+sudo apt install python3.8 python3.8-pip
 sudo update-alternatives --config python3
   ```
   Then select the correct Python version.
