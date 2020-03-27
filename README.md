@@ -7,6 +7,16 @@ Public API for fetching anonymous identifiers of SARS-CoV-2 positive users
 - Python 3.8+
 - MongoDB database
 
+<details>
+  <summary>Quick start Python3</summary>
+  
+  ```bash
+sudo apt install python3 python3-pip
+sudo update-alternatives --config python3
+  ```
+  Then select the correct Python version.
+</details>
+
 ## Installation
 
 Install and initialize [Poetry](https://python-poetry.org/docs). Run
@@ -14,6 +24,15 @@ Install and initialize [Poetry](https://python-poetry.org/docs). Run
 ```bash
 poetry install
 ```
+<details>
+  <summary>Quick start Poetry (UNIX)</summary>
+  
+  ```bash
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+source ~/.poetry/env
+  ```
+  
+</details>
 
 ## Configuration
 
