@@ -47,9 +47,6 @@ def cases():
     return Response(generate(), mimetype="application/octet-stream")
 
 
-issubclass
-
-
 @app.route("/v1/insert/<int:n>", methods=["POST"])
 def insert(n):
     if not app.config["DEBUG"]:
