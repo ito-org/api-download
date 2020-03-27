@@ -20,8 +20,8 @@ app.config["APPLICATION_ROOT"] = "/"
 
 mongo.init_app(app)
 
-# TODO: instead of a timestamp passing a single UUID might be better here
-@app.route("/v1/cases")
+
+@app.route("/v1/cases", methods=["GET"])
 def cases():
     lat: Union[Optional[float], int] = request.args.get("lat", type=float)
     lon: Union[Optional[float], int] = request.args.get("lon", type=float)
@@ -50,9 +50,9 @@ def cases():
 issubclass
 
 
-@app.route("/v1/insert/<int:n>")
+@app.route("/v1/insert/<int:n>", methods=["POST"])
 def insert(n):
     if not app.config["DEBUG"]:
         abort(404)
     insert_random_cases(n)
-    return Response("Successfully inserted {:d} random cases".format(n), status=200)
+    return Response("Successfully inserted {:d} random cases".format(n), status=201)
