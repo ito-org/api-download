@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "public-api"
+name = "ito.download-api"
 version = "0.1.0"
-description = "Public API for fetching UUIDs of SARS-CoV-2 positive users"
-authors = ["Your Name <you@example.com>"]
+description = "Public API for fetching pseudonyms of users confirmed infected"
+authors = []
 
 [tool.poetry.dependencies]
 python = "^3.8"

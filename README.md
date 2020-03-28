@@ -1,6 +1,6 @@
-# BanDemic Public API
+# ito - Download API
 
-Public API for fetching anonymous identifiers of SARS-CoV-2 positive users
+Public API for fetching pseudonyms of users confirmed infected
 
 ## Requirements
 
@@ -24,6 +24,7 @@ Install and initialize [Poetry](https://python-poetry.org/docs). Run
 ```bash
 poetry install
 ```
+
 <details>
   <summary>Quick start Poetry (UNIX)</summary>
   
@@ -46,4 +47,5 @@ Run the local Flask development server using
 export POETRY_ENV="development"
 poetry run flask run
 ```
+
 Then browse to http://localhost:5000/v1/cases?uuid=af7af6b6-eb02-4d12-b554-f5cb089afc5d for example.
