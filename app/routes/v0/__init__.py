@@ -1,10 +1,7 @@
-from flask import Blueprint, escape, request, jsonify, Response, abort, current_app
-from datetime import datetime
-import dateutil.parser as dateparser
+from flask import Blueprint, request, Response, abort, current_app
 from uuid import UUID
 from typing import Union, Optional
-import os
-from db import get_cases, insert_random_cases
+from app.persistence.db import get_cases, insert_random_cases
 
 cases = Blueprint("v0.cases", __name__, url_prefix="/v0/cases")
 
