@@ -2,6 +2,7 @@ from flask import Blueprint, request, Response, abort, current_app
 from uuid import UUID
 from typing import Union, Optional
 from app.persistence.db import get_cases, insert_random_cases
+from app.model import ApiError
 
 cases = Blueprint("v0.cases", __name__, url_prefix="/v0/cases")
 
@@ -11,8 +12,9 @@ def index() -> Response:
     lat: Union[Optional[float], int] = request.args.get("lat", type=float)
     lon: Union[Optional[float], int] = request.args.get("lon", type=float)
     uuid: Optional[UUID] = request.args.get("uuid", type=UUID)
+
     if uuid is None:
-        return Response("Please pass a uuid", status=400)
+        return ApiError(400, "No valid UUID for the requested query").as_response()
 
     try:
         if lat is not None:
@@ -35,6 +37,6 @@ def index() -> Response:
 @cases.route("/insert/<int:n>", methods=["POST"])
 def insert(n) -> Response:
     if not current_app.config["DEBUG"]:
-        abort(404)
+        return ApiError(501, "Only available for debugging.").as_response()
     insert_random_cases(n)
     return Response("Successfully inserted {:d} random cases".format(n), status=201)
