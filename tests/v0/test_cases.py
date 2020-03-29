@@ -1,5 +1,6 @@
 from flask import url_for
 from uuid import uuid4, UUID
+import json
 
 
 def test_index_returns_stream_for_existing_uuid(client):
@@ -20,4 +21,7 @@ def test_index_returns_stream_for_random_uuid(client):
 def test_index_fails_without_args(client):
     res = client.get(url_for("v0.cases.index"))
     assert res.status_code == 400
-    assert res.data == b"Please pass a uuid"
+    assert json.dumps(json.loads(res.data), sort_keys=True) == json.dumps(
+        {"code": 400, "message": "No valid UUID for the requested query",},
+        sort_keys=True,
+    )

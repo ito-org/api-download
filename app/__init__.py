@@ -1,6 +1,5 @@
 from flask import Flask
-from db import db
-import config
+from app.persistence.db import db
 import os
 
 from .routes.v0 import cases
