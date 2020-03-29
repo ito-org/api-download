@@ -7,7 +7,7 @@ from app.model import ApiError
 cases = Blueprint("v0.cases", __name__, url_prefix="/v0/cases")
 
 
-@cases.route("", methods=["GET"])
+@cases.route("", methods=["GET"], strict_slashes=False)
 def index() -> Response:
     lat: Union[Optional[float], int] = request.args.get("lat", type=float)
     lon: Union[Optional[float], int] = request.args.get("lon", type=float)
