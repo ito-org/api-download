@@ -56,4 +56,7 @@ jobs:
           FLASK_ENV: testing
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ito/api-download:latest
+        run: docker build . --file Dockerfile --tag docker.pkg.github.com/ito-org/api-download/api-download:latest
+        
+      - name: Publish the Docker image on GitHub Packages
+        run: docker push docker.pkg.github.com/ito-org/api-download/api-download:latest
