@@ -56,8 +56,8 @@ jobs:
           FLASK_ENV: testing
 
       - name: Log in to GitHub Packages
-        run: docker login docker.pkg.github.com -u ${{ secrets.GITHUB_TOKEN }}
-
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.repository }} --password-stdin
+        
       - name: Build the Docker image
         if: success()
         run: docker build . --file Dockerfile --tag docker.pkg.github.com/ito-org/api-download/api-download:latest
