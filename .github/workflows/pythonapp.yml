@@ -54,3 +54,11 @@ jobs:
         env:
           MONGO_URI: ${{ secrets.MongoUri }}
           FLASK_ENV: testing
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          # Artifact name
+          name: api-download
+          # Directory containing files to upload
+          path: builds/latest
